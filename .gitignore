@@ -1,0 +1,6 @@
+*.db
+*.sqlite3
+*.dscr
+*.sql
+*.geojson
+*.hid
