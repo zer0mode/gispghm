@@ -1,0 +1,36 @@
+{% load leaflet_tags %}
+<html>
+  <head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script src="//code.jquery.com/jquery-3.1.0.min.js"></script>
+    <style>
+        .leaflet-container { height: 90%; }
+    </style>
+  </head>
+  <body>
+    <h2>SIGPGHM</h2>
+    {% leaflet_map "main" callback="main_map_init" %}
+
+    <script type="text/javascript">
+        function main_map_init (map, options) {
+            // var dataurl = '{% url "wcamsdata" %}';
+            var dataurl = '{% url "camser" %}';            
+            // Download GeoJSON via Ajax
+            $.getJSON(dataurl, function (data) {
+                // Add GeoJSON layer
+                L.geoJson(data).addTo(map);
+            });
+        }
+
+		// function onMapClick(e) {
+		// 	popup
+		// 		.setLatLng(e.latlng)
+		// 		.setContent("coordinates : " + e.latlng.toString())
+		// 		.openOn(map);
+		// }        
+    </script>
+    <aside><a href="{% url 'logout' %}">logout</a></aside>
+    
+  </body>
+</html>
