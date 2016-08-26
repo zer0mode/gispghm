@@ -5,11 +5,10 @@
     {% leaflet_css %}
     <script src="//code.jquery.com/jquery-3.1.0.min.js"></script>
     <style>
-        .leaflet-container { height: 90%; }
+        .leaflet-container { height: 95%; }
     </style>
   </head>
   <body>
-    <h2>SIGPGHM</h2>
     {% leaflet_map "main" callback="main_map_init" %}
 
     <script type="text/javascript">
@@ -22,13 +21,6 @@
                 L.geoJson(data).addTo(map);
             });
         }
-
-		// function onMapClick(e) {
-		// 	popup
-		// 		.setLatLng(e.latlng)
-		// 		.setContent("coordinates : " + e.latlng.toString())
-		// 		.openOn(map);
-		// }        
     </script>
     <aside><a href="{% url 'logout' %}">logout</a></aside>
     
