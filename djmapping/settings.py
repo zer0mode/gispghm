@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'djmapping.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
+#SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
 
 DATABASES = {
     # 'default': {
@@ -96,17 +96,16 @@ DATABASES = {
     #     'ENGINE': 'django.contrib.gis.db.backends.spatialite',
     #     'NAME': os.path.join(BASE_DIR, 'pghm.db.sqlite3'),
     # },
-    #'default': {},
     'default': {
-        #'ENGINE': 'django.db.backends.postgresql',
-        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'ENGINE': 'django.contrib.gis.db.backends.postgis',        
         'NAME': 'pghmdb',
         'USER': 'gisdj',
         'PASSWORD': 'g1sdj',
         #'HOST': '127.0.0.1',   # https://docs.djangoproject.com/en/dev/ref/settings/#host
-        'HOST': '',             # defined by UNIX domain sockets (‘local’ lines in pg_hba.conf)
-        'PORT': '',             # can be empty so the default postgresql port is used (5432)
+        #'HOST': '',             # defined by UNIX domain sockets (‘local’ lines in pg_hba.conf)
+        #'PORT': '',             # can be empty so the default postgresql port is used (5432)
+        'HOST': 'localhost',
+        'PORT': '5432',
     },
     # 'usersdb': {
     #     'ENGINE': 'django.contrib.gis.db.backends.postgis',        
@@ -141,9 +140,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
@@ -228,4 +227,3 @@ LEAFLET_CONFIG = {
 
 #LOGIN_REDIRECT_URL = '/'
 
-TIME_ZONE = 'Europe/Paris'
