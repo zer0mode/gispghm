@@ -24,7 +24,7 @@ APP_DIR = os.path.dirname(pghm.__file__)
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'w2oq7(mg#0@=$1bwplqsqd(3s&yziioq=($1*q2b1l^p(j*ya4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -94,25 +94,25 @@ DATABASES = {
     # 'default': {
     #     #'ENGINE': 'django.db.backends.sqlite3',
     #     'ENGINE': 'django.contrib.gis.db.backends.spatialite',
-    #     'NAME': os.path.join(BASE_DIR, 'project.db.sqlite3'),
+    #     'NAME': os.path.join(BASE_DIR, 'pghm.db.sqlite3'),
     # },
     #'default': {},
     'default': {
         #'ENGINE': 'django.db.backends.postgresql',
         #'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'ENGINE': 'django.contrib.gis.db.backends.postgis',        
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'pghmdb',
+        'USER': 'gisdj',
+        'PASSWORD': 'g1sdj',
         #'HOST': '127.0.0.1',   # https://docs.djangoproject.com/en/dev/ref/settings/#host
         'HOST': '',             # defined by UNIX domain sockets (‘local’ lines in pg_hba.conf)
         'PORT': '',             # can be empty so the default postgresql port is used (5432)
     },
     # 'usersdb': {
     #     'ENGINE': 'django.contrib.gis.db.backends.postgis',        
-    #     'NAME': 'usersdb',
-    #     'USER': '',
-    #     'PASSWORD': '',
+    #     'NAME': 'pghmusersdb',
+    #     'USER': 'gisdj',
+    #     'PASSWORD': 'g1sdj',
     #     'HOST': '',
     #     'PORT': '',
     # }, 
@@ -162,7 +162,7 @@ STATIC_URL = '/static/'
 
 # IGN url generation & setup
 # key
-IGN_KEY = ''
+IGN_KEY = '2pkukowxt0podbngs5sckjry'
 
 # layer definition
 IGN_LAYER = [
@@ -197,17 +197,30 @@ LEAFLET_CONFIG = {
         #('OrthoMapBox', 'http://{s}.tiles.mapbox.com/v3/openstreetmap.map/{z}/{x}/{y}.jpg', '(c) MapBox'),
     ],
     #'TILES': [],
-    #'OVERLAYS': [],
+    # 'OVERLAYS': [
+    #     ('Coeur de parc', 'http://{s}.tilestream.makina-corpus.net/v2/coeur-ecrins/{z}/{x}/{y}.png', 'Ecrins'),    
+    #     ('PGHM - webcams', 'http://server/a/{z}/{x}/{y}.png', {'attribution': '&copy; att1'}),
+    #     # ('PGHM - dz', 'http://server/a/{z}/{x}/{y}.png', {'attribution': '&copy; att2'}),
+    #     # ('PGHM', 'http://server/a/{z}/{x}/{y}.png', {'attribution': '&copy; att3'}),
+    # ],
     #'TILES_EXTENT': SPATIAL_EXTENT,
     #'TILES_EXTENT': (-45, 0, 6, 50),
     #'TILES_EXTENT': [924861,6375196,985649,6448688],
+    #'SRID': 2154,
     'DEFAULT_ZOOM': 9,
     'MIN_ZOOM': 5,
     'MAX_ZOOM': 17,
+    #'TILES': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     #'ATTRIBUTION_PREFIX': 'Powered by django-leaflet',
     'MINIMAP': True,
     #'SCALE': 'both',
     'RESET_VIEW': True,
+    # 'PLUGINS': {
+    #     'basics': {
+    #         'js': ['http://rawgithub.com/glenrobertson/leaflet-tilelayer-geojson/master/TileLayer.GeoJSON.js'],
+    #         'auto-include': True
+    #     }
+    # }
 }
 
 
