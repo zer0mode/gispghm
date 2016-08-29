@@ -24,7 +24,7 @@ APP_DIR = os.path.dirname(pghm.__file__)
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'w2oq7(mg#0@=$1bwplqsqd(3s&yziioq=($1*q2b1l^p(j*ya4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'djmapping.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
+#SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
 
 DATABASES = {
     # 'default': {
@@ -96,17 +96,13 @@ DATABASES = {
     #     'ENGINE': 'django.contrib.gis.db.backends.spatialite',
     #     'NAME': os.path.join(BASE_DIR, 'project.db.sqlite3'),
     # },
-    #'default': {},
     'default': {
-        #'ENGINE': 'django.db.backends.postgresql',
-        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'ENGINE': 'django.contrib.gis.db.backends.postgis',        
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        #'HOST': '127.0.0.1',   # https://docs.djangoproject.com/en/dev/ref/settings/#host
-        'HOST': '',             # defined by UNIX domain sockets (‘local’ lines in pg_hba.conf)
-        'PORT': '',             # can be empty so the default postgresql port is used (5432)
+        'NAME': 'pghmdb',
+        'USER': 'gisdj',
+        'PASSWORD': 'g1sdj',
+        'HOST': 'localhost',      # https://docs.djangoproject.com/en/dev/ref/settings/#host
+        'PORT': '5432',
     },
     # 'usersdb': {
     #     'ENGINE': 'django.contrib.gis.db.backends.postgis',        
@@ -141,9 +137,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
@@ -162,7 +158,7 @@ STATIC_URL = '/static/'
 
 # IGN url generation & setup
 # key
-IGN_KEY = ''
+IGN_KEY = '2pkukowxt0podbngs5sckjry'
 
 # layer definition
 IGN_LAYER = [
@@ -215,4 +211,3 @@ LEAFLET_CONFIG = {
 
 #LOGIN_REDIRECT_URL = '/'
 
-TIME_ZONE = 'Europe/Paris'
