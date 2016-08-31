@@ -1,6 +1,6 @@
-===========
-USER MANUAL
-===========
+==================
+MANUEL UTILISATEUR
+==================
 
 Screencasts
 -----------
@@ -16,7 +16,7 @@ Screencasts
 Modules
 -------
 
-Geotrek est composé de différents modules.
+Choucas est composé de différents modules.
 
 **Gestion des sentiers** :
 

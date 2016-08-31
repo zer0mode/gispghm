@@ -57,35 +57,6 @@ Ajouter cette ligne dans le fichier (en remplacant ``URL_FollowDem`` par l'URL d
 
 Les résultats de la tache lancée automatiquement toutes les heures seront écrits dans le fichier de log ``/logs/imports.log``.
 
-D'autres manières de remplir ce CSV pourraient être envisagées : 
-
-- Remplir directement le fichier CSV automatiquement ou à la main
-- Importer les fichiers TXT dans le répertoire ``tmp/csv`` sans passer par une connexion à une boite email.
-
-Ainsi une autre tache est disponible sans se connecter à une boite email, ni passer par des fichiers TXT : ``url/controler/import_csv``
-
-- Elle recherche le fichier : ``csv/tracked_objects.csv``
-- Puis importe selon la définition du tableau associatif ``$config['csv_colonne']`` (nom_donnee => index CSV) 
-
-Dans notre cas, le fichier CSV est constitué des colonnes :
-
-- Id de l'objet.
-- Nom de l'objet.
-- Date de l'envoi des données au satellite.
-- Heure de l'envoi des données au satellite.
-- TTF (pas utilisé)
-- Latitude.
-- Longitude.
-- Nombre de satellites.
-- 3D ou 2D. (si c'est on 3D on a l'altitude)
-- Altitude de l'objet.
-- H-DOP. (permet de connaître la fiabilité de la position)
-- Température.
-- X (pas utilisé)
-- Y (pas utilisé)
-
-Les colonnes et leur ordre dans le CSV sont configurables dans le paramètre ``$config['csv_colonne']`` du fichier ``/config/config.php``
-Il est possible de définir des seuils de valeur pour lesquelles on ne souhaite pas intégrer les positions dans la BDD (Nombre de satellites trop faible, H-DOP trop élevé, latitude, longitude ou altitude incohérentes,...) avec le paramètre ``$config['csv_condition']`` dans le fichier ``/config/config.php``.
 
 Configurer l'application
 ========================
