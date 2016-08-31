@@ -1,17 +1,20 @@
-.. choucas documentation master file, created by
-   sphinx-quickstart on Wed Aug 31 14:44:01 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to choucas's documentation!
-===================================
+Bienvenue dans la documentation CHOUCAS
+=======================================
 
 Contents:
+
+jhgggjhjhjgjgjgh
 
 .. toctree::
    :maxdepth: 2
 
+   installation
+   configuration
+   manuel
+   auteurs
+   changelog
 
+hkjhkj kjh khjhkjhkjhj
 
 Indices and tables
 ==================
