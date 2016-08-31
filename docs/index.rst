@@ -3,7 +3,7 @@ Bienvenue dans la documentation CHOUCAS
 
 Contents:
 
-jhgggjhjhjgjgjgh
+Ceci est la documentation du projet en développement
 
 .. toctree::
    :maxdepth: 2

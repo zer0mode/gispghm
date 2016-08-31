@@ -1,13 +1,13 @@
 CHOUCAS
 =======
 
-Choucas est une application développée par en
+Choucas est une application développée par Oton Copi lors de son stage de .. en 2016
 
-Elle permet . 
+Elle porte sous le framework geodjango la webapp "Gendloc".
 
-Il est ensuite possible de consulter ou exporter l'inventaire des interventions sous forme de carte ou de liste, rechercher, et imprimer une intervention.
- 
-Le référent peut aussi renseigner les informations concernant la suite donnée à chaque intervention (numero du parquet, amende, dommages et intérêts...).
+Elle fait.... 
+
+L'objectif est...
 
 .. image :: docs/img/police-appli-presentation.jpg
 
