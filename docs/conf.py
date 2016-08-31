@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # choucas documentation build configuration file, created by
-# sphinx-quickstart on Wed Aug 31 12:34:36 2016.
+# sphinx-quickstart on Wed Aug 31 14:44:01 2016.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -31,8 +31,8 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.viewcode',
-    'sphinx.ext.githubpages',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.coverage',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -53,8 +53,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'choucas'
-copyright = '2016, Copi Oton - Favre Olivier'
-author = 'Copi Oton - Favre Olivier'
+copyright = '2016, Oton Copi - Olivier Favre'
+author = 'Oton Copi - Olivier Favre'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -264,7 +264,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'choucas.tex', 'choucas Documentation',
-     'Copi Oton - Favre Olivier', 'manual'),
+     'Oton Copi - Olivier Favre', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
