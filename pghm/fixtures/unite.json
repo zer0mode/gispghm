@@ -1,0 +1,39 @@
+[
+  {
+    "model": "pghm.Unite",
+    "pk": 1,
+    "fields": {
+      "code": "PG38",
+      "nom": "PGHM ISERE",
+      "email": "pghm.le-versoud@gendarmerie.interieur.gouv.fr",
+      "secours": "olivierfavre38@gmail.com",
+      "geom": "SRID=4326;POINT (5.8451000000000004 45.3453000000000017)",
+      "dept": "38",
+      "zoom": 10
+      }
+  },  {
+    "model": "pghm.Unite",
+    "pk": 2,
+    "fields": {
+      "code": "TEST",
+      "nom": "UNITE TEST",
+      "email": "pghm.le-versoud@gendarmerie.interieur.gouv.fr",
+      "secours": "olivierfavre38@gmail.com",
+      "geom": "SRID=4326;POINT (5.8451000000000004 45.3453000000000017)",
+      "dept": "38",
+      "zoom": 10
+      }
+  },  {
+    "model": "pghm.Unite",
+    "pk": 3,
+    "fields": {
+      "code": "ESSAI",
+      "nom": "ESSAI",
+      "email": "pghm.le-versoud@gendarmerie.interieur.gouv.fr",
+      "secours": "olivierfavre38@gmail.com",
+      "geom": "SRID=4326;POINT (5.8451000000000004 45.3453000000000017)",
+      "dept": "38",
+      "zoom": 10
+      }
+  }
+]

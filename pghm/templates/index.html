@@ -1,0 +1,204 @@
+{% load leaflet_tags %}
+{% load static %}
+<html>
+  <head>
+
+    {% leaflet_js plugins="ALL" %}
+    {% leaflet_css plugins="ALL" %}
+
+    <script src="//code.jquery.com/jquery-3.1.0.min.js"></script>
+	<!--bibliothèque fontawesome pour affichage map-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <style>
+        .leaflet-container { height: 100%; }
+    </style>
+  </head>
+
+  <body>
+
+<!-- SIDEBAR -->
+
+	<div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <ul class="sidebar-tabs" role="tablist">
+            <li><a href="#home" role="tab"><i class="fa fa-home"></i></a></li>
+            <li><a href="#search" role="tab"><i class="fa fa-search"></i></a></li>
+	    	<!-- li><a href="#map-marker" role="tab"><i class="fa fa-map-marker"></i></a></li-->
+            <li><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>           
+            <li><a href="/logout/" role="tab"><i class="fa fa-sign-out"></i></a></li>
+       	</ul>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content active">
+            	<!--tab HOME-->
+		<div class="sidebar-pane" id="home">
+            <h1>DEMO GENDLOC - CORG</h1>
+			<h1>Fonctionnalités proposées</h1>
+                <p>Fond de carte IGN et OSM</p>
+				<p>Recherche IGN toponyme et commune</p>
+				<p>Recherche nominatim openstreetmap</p>
+				<p>Recherche Base Adresse Nationale - adresse.data.gouv.fr</p>
+				<p>Gendloc</p>
+				<p>Affichage couche tracking smartphone</p>
+				<p>Affichage couche accueil gendarmerie</p>
+		</div>
+
+		<!--tab RECHERCHE-->
+		<div class="sidebar-pane" id="search">
+				<h1>Recherche</h1>
+				<h3>Attention vue écran</h3>
+				<FORM>
+				<INPUT type="TEXT" name="c" id="c" autofocus>
+				<INPUT type="submit" value="RECHERCHER" >
+				</br></br>
+				<div id="res_topo"></div>
+				<div id="res_nominatim"></div>
+				<div id="res_BAN"></div>
+				<div id="res_com"></div>
+				</FORM>
+				Recherche floue IGN, base adresse nationale et nominatim
+		</div>
+
+		<!--MESSAGE--> 
+		<div class="sidebar-pane" id="messages">
+			<h1>Nous contacter</h1>
+			<a href="mailto:gendloc@pghm-isere.com?subject=Contact+gendloc">PGHM ISERE - GENDLOC</a>
+		</div>
+	</div>
+	</div>
+  
+
+
+
+	{% leaflet_map "main" callback="main_map_init" %}
+
+    <script type="text/javascript">
+        
+    function main_map_init (map, options) {
+
+    // Cle API Geoportail
+	var apiKey = '{{ settings.IGN_KEY }}';
+	// Liste des couches a afficher
+	//var layers = new Array();
+	// L'url des services Geoportail
+	function geopUrl (key, layer, format)
+		{	return "http://wxs.ign.fr/"+ key + "/wmts?LAYER=" + layer
+				+"&EXCEPTIONS=text/xml&FORMAT="+(format?format:"image/jpeg")+"&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal&TILEMATRIXSET=PM"
+				+"&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}" ;
+		}
+	var attributionIGN = '&copy; <a href="http://www.ign.fr/">IGN-France</a>';
+		 
+	/** Definition des couches  */
+		// Carte IGN 
+	var SCAN = L.tileLayer(geopUrl(apiKey,"GEOGRAPHICALGRIDSYSTEMS.MAPS"), { attribution:attributionIGN, maxZoom:18 } );
+	//var SCANEXPRESS = L.tileLayer(geopUrl(apiKey,"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.CLASSIQUE"), { attribution:attributionIGN, maxZoom:18 } );
+	var ORTHO = L.tileLayer(geopUrl(apiKey,"ORTHOIMAGERY.ORTHOPHOTOS"), { attribution:attributionIGN, maxZoom:19 } );
+	map.addLayer(SCAN);
+	
+	//Affichage leplatre djgeojson ajax
+	//var layer = L.geoJson();
+	//map.addLayer(layer);
+	//$.getJSON("{% url 'camera' %}", function (data) {
+    //layer.addData(data);
+	//});
+
+
+    var ski = L.tileLayer('http://www.opensnowmap.org/opensnowmap-overlay/{z}/{x}/{y}.png', {
+		attribution: 'OpenPisteMap', visible: true, minZoom: 13, maxZoom: 18, opacity: 0.8
+		});
+
+	var baseMaps = [{
+                       groupName : "IGN",
+						expanded : true,
+						layers    : {
+							"SCAN": SCAN,
+							//"EXPRESS": SCANEXPRESS,
+							"ORTHO": ORTHO
+							}
+	}];  
+
+	var overlays = [{
+                       groupName : "METIER",
+						expanded : true,
+						layers    : {
+							"SKI": ski
+							}
+	}];
+
+	var options = {
+				container_width 	: "200px",
+				container_maxHeight	: "400px", 
+				group_maxHeight     : "150px",
+				exclusive       	: false
+			};
+		
+	var control = L.Control.styledLayerControl(baseMaps, overlays, options);
+
+    //COUCHE WEBCAM
+    {% if perms.pghm.can_view_webcam %}
+		var webcamIcon = L.Icon.extend({
+    		options: {
+        		iconUrl: '{% static "pghm/icon/webcam2.png" %}',
+				iconSize: new L.Point(50, 59),
+        		iconAnchor: new L.Point(25, 29),
+       			popupAnchor: new L.Point(0, 0),
+        		shadowUrl: null
+        	    }
+			});
+
+
+		var webcam = new L.GeoJSON.AJAX("{% url 'camera' %}", {onEachFeature:popUpWebcam, pointToLayer:  function (feature, latLng) {
+        	return new L.Marker(latLng, {
+        	    icon: new webcamIcon()
+				})
+    		}});
+
+		function popUpWebcam(feature, layer) {
+    		if (feature.properties && feature.properties.nom.toString()) {
+				var popUpContent= '<h3>'+feature.properties.nom+'</h3></br><a href="'+feature.properties.img+'" target="_blank"><img src="'+feature.properties.img+'"width="160" height="120"></a></br><a href="'+feature.properties.site+'" target="_blank">Site web</a>';
+				layer.bindPopup(popUpContent);
+   				 }}	
+
+   		control.addOverlay( webcam, "WEBCAM", {groupName : "METIER"} );
+
+	{% endif %}
+
+	{% if perms.pghm.can_view_webcam %}
+
+	{% endif %}
+
+
+	map.addControl(control);
+
+	var sidebar = L.control.sidebar('sidebar', {position: 'left'});
+	map.addControl(sidebar);
+
+	//affichage coordonnées curseur DD
+	L.control.coordinates({useLatLngOrder:true,
+			centerUserCoordinates:true,
+			labelTemplateLat:"D.D Lat {y}",
+			labelTemplateLng:"Lng {x}"
+		}).addTo(map);
+	//affichage coordonnées curseur DMS
+	L.control.coordinates({
+			position:"bottomright",
+			useDMS:true,
+			centerUserCoordinates:true,
+			labelTemplateLat:"D°MM'SS'' Lat {y}",
+			labelTemplateLng:"Lng {x}",
+			useLatLngOrder:true
+		}).addTo(map);
+
+
+
+
+           
+        }
+
+		
+
+    </script>
+    
+  </body>
+</html>

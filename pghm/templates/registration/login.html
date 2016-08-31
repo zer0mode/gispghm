@@ -1,14 +1,7 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-<head>
-<title>Log in PGHM | User</title>
-<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
-<link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
-<body class=" login">
+{% block content %}
 
-
-<div id="content-main">
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
@@ -22,7 +15,7 @@
     {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
+<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
 {% csrf_token %}
 <table>
 <tr>
@@ -41,6 +34,5 @@
 
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-</div>
-</body>
-</html>
+
+{% endblock %}
