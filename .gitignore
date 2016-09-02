@@ -1,7 +1,8 @@
 *.db
 *.sqlite3
-*.dscr
 *.sql
 *.geojson
+*.dscr
 *.hid
+*.copy
 *.pyc
