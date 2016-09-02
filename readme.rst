@@ -1,15 +1,13 @@
 CHOUCAS
 =======
 
-Choucas est une application développée par Oton Copi lors de son stage de .. en 2016
+Choucas est une application développée par Oton Copi lors de son stage Master IC 2 A - DCISS RS cycle 2015 2016 de l'université Grenoble Alpes en fin de cycle.
 
-Elle porte sous le framework geodjango la webapp "Gendloc".
+Le projet a connu une phase 1 de modélisation. La phase 2 a pour objectif de porter sous le framework geodjango la webapp "Gendloc" précédemment développée.
 
-Elle fait.... 
+Elle propose une interface d'administration et une vue utilisateur constituée d'une couche de base et d'overlays métier. Outre les "accessoires" à la carte, Choucas propose un menu accordéon donnant accès à différent outils de recherche et information.
 
-L'objectif est...
-
-.. image :: docs/img/police-appli-presentation.jpg
+.. image :: ./docs/img/html2.png
 
 Technologies
 ------------
