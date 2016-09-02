@@ -38,5 +38,5 @@ License
 * Copyright (c) 2016 - Peloton de Gendarmerie de Haute-Montagne - Laboratoire d'informatique de Grenoble
 
 
-.. image:: http://pnecrins.github.io/GeoNature/img/logo-pne.jpg
-    :target: http://www.ecrins-parcnational.fr
+.. image:: ./docs/img/logos.png
+
