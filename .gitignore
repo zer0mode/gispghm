@@ -2,6 +2,7 @@
 *.pyc
 *.diff
 *.err
+*.orig
 *.log
 *.rej
 *.swo
@@ -41,12 +42,11 @@ _build
 _static
 _templates
 
-# Files to ingore
+# Files to ignore
 *.db
 *.sqlite3
 *.sql
 *.geojson
 *.dscr
 *.hid
-*.orig
 *.copy

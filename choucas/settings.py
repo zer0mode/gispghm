@@ -83,7 +83,6 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'choucas.wsgi.application'
 
 
@@ -236,6 +235,7 @@ LEAFLET_CONFIG = {
     #'TILES_EXTENT': [924861,6375196,985649,6448688],    
     #'SCALE': 'both',     
 }
+
 
 # Login url config
 LOGIN_REDIRECT_URL = '/'
