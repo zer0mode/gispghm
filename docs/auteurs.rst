@@ -2,7 +2,7 @@
 AUTEURS
 =======
 
-* Oton Copi
+* Oton Čopi
 * Olivier Favre
 
 .. image:: http://depot.makina-corpus.org/public/logo.gif
