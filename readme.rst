@@ -5,7 +5,7 @@ Choucas est une application développée par Oton Copi lors de son stage Master 
 
 Le projet a connu une phase 1 de modélisation. La phase 2 a pour objectif de porter sous le framework geodjango la webapp "Gendloc" précédemment développée.
 
-Elle propose une interface d'administration et une vue utilisateur constituée d'une couche de base et d'overlays métier. Outre les "accessoires" à la carte, Choucas propose un menu accordéon donnant accès à différent outils de recherche et information.
+Elle propose une interface d'administration et une vue utilisateur constituée d'une couche de base et d'overlays métier. Outre les "accessoires" à la carte, Choucas propose un menu accordéon donnant accès à différents outils de recherche et information.
 
 .. image :: ./docs/img/html2.png
 
