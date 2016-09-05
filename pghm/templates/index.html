@@ -78,22 +78,27 @@
     function main_map_init (map, options) {
 
     // Cle API Geoportail
-	var apiKey = '{{ settings.IGN_KEY }}';
+	// var apiKey = '{{ settings.IGN_KEY }}';
+	// set service IGN - API key already preset
+	//var scanIGN = '{{ settings.SCAN_IGN|escapejs }}';
+	var scanIGN = '{{ settings.SCAN_IGN|escapejs }}';	
+	var orthoIGN = '{{ settings.ORTHO_IGN|escapejs }}';	
 	// Liste des couches a afficher
 	//var layers = new Array();
 	// L'url des services Geoportail
-	function geopUrl (key, layer, format)
-		{	return "http://wxs.ign.fr/"+ key + "/wmts?LAYER=" + layer
-				+"&EXCEPTIONS=text/xml&FORMAT="+(format?format:"image/jpeg")+"&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal&TILEMATRIXSET=PM"
-				+"&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}" ;
-		}
-	var attributionIGN = '&copy; <a href="http://www.ign.fr/">IGN-France</a>';
+	// function geopUrl (key, layer, format)
+	// 	{	return "http://wxs.ign.fr/"+ key + "/wmts?LAYER=" + layer
+	// 			+"&EXCEPTIONS=text/xml&FORMAT="+(format?format:"image/jpeg")+"&SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&STYLE=normal&TILEMATRIXSET=PM"
+	// 			+"&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}" ;
+	// 	}
+	// var attributionIGN = '&copy; <a href="http://www.ign.fr/">IGN-France</a>';
+	var attributionIGN = '{{ settings.SET_ATTRIB|escapejs}}';
 		 
 	/** Definition des couches  */
 		// Carte IGN 
-	var SCAN = L.tileLayer(geopUrl(apiKey,"GEOGRAPHICALGRIDSYSTEMS.MAPS"), { attribution:attributionIGN, maxZoom:18 } );
+	var SCAN = L.tileLayer(scanIGN, { attribution:attributionIGN, maxZoom:18 } );
 	//var SCANEXPRESS = L.tileLayer(geopUrl(apiKey,"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.CLASSIQUE"), { attribution:attributionIGN, maxZoom:18 } );
-	var ORTHO = L.tileLayer(geopUrl(apiKey,"ORTHOIMAGERY.ORTHOPHOTOS"), { attribution:attributionIGN, maxZoom:19 } );
+	var ORTHO = L.tileLayer(orthoIGN, { attribution:attributionIGN, maxZoom:19 } );
 	map.addLayer(SCAN);
 	
 	//Affichage leplatre djgeojson ajax

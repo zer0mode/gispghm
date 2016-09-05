@@ -94,24 +94,24 @@ SPATIALITE_LIBRARY_PATH = 'mod_spatialite'
 
 DATABASES = {
     # 'default': {
-    #     # 'ENGINE': 'django.db.backends.sqlite3',
+    #     #'ENGINE': 'django.db.backends.sqlite3',
     #     'ENGINE': 'django.contrib.gis.db.backends.spatialite',
     #     'NAME': os.path.join(BASE_DIR, 'pghm.db.sqlite3'),
     # },
     #'default': {},
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'ENGINE': 'django.contrib.gis.db.backends.postgis',        
         'NAME': '',
         'USER': '',
         'PASSWORD': '',
-        # 'HOST': '127.0.0.1',   # https://docs.djangoproject.com/en/dev/ref/settings/#host
+        #'HOST': '127.0.0.1',   # https://docs.djangoproject.com/en/dev/ref/settings/#host
         'HOST': '',             # defined by UNIX domain sockets (‘local’ lines in pg_hba.conf)
         'PORT': '',             # can be empty so the default postgresql port is used (5432)
     },
     # 'usersdb': {
-    # 'ENGINE': 'django.db.backends.postgresql',    
+    #     'ENGINE': 'django.contrib.gis.db.backends.postgis',        
     #     'NAME': '',
     #     'USER': '',
     #     'PASSWORD': '',
@@ -188,7 +188,6 @@ SETTINGS_EXPORT = [
     'ORTHO_IGN',
     'SET_ATTRIB',
 ]
-
 
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (45.188416, 5.92585),

@@ -2,16 +2,15 @@
 AUTEURS
 =======
 
-* Oton Copi
+* Oton Čopi
 * Olivier Favre
 
-.. image:: http://depot.makina-corpus.org/public/logo.gif
-    :target: http://www.makina-corpus.com
+.. image:: ./img/logos.png
 
 
 Credits
 -------
 
-* *django-leaflet* by x from h
-* *django-geojson* by y from h
-* *django-settings-export* 
+* *django-leaflet* by Makina Corpus
+* *django-geojson* by Makina Corpus
+* *django-settings-export* by Jakub Roztocil
