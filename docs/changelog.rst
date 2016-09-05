@@ -2,20 +2,23 @@
 CHANGELOG
 =========
 
+0.5 (2016-09-05)
+----------------
+
+* Add documentation
+
+
+0.4 (2016-09-03)
+----------------
+
+* Nettoyage du projet
+
+
 0.3 (2016-08-31)
 -----------------
 
-* Add documentation
 * Add fixture unite
 * Add baselayers in LeafletGeoAdmin
-
-:notes:
-
-    Specify allowed host (server IP) in ``etc/settings.ini`` (*for example*):
-    * ``host = 45.56.78.90``
-    Empty object caches:
-    * ``sudo /etc/init.d/memcached restart``
-    * ``rm -rf ./var/cache/*``
 
 
 0.2 (2016-08-06)
