@@ -41,14 +41,14 @@ Choucas est composé de différents modules.
 * Secouriste
 * Capacité d'inclure un client html5 - requérant
 
-**Module SMS :
+**Module SMS** :
 
 * SMS particulier, groupe
 * SMS automatique
 * Répertoire
 * Communication avec secouriste
 
-**Module Alerte Secours Montagne
+**Module Alerte Secours Montagne**
 
 Chaque module est accessible depuis le bandeau vertical. 
 
