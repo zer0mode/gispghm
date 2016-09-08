@@ -2,37 +2,53 @@
 MANUEL UTILISATEUR
 ==================
 
+... en cours de rédaction ...
+
 Screencasts
 -----------
 
 ( **En français** )
 
-* `Présentation de l'interface  <http://youtu.be/-iVe9wBZ50>`_
-* `Administration <http://youtu.be/P106bQiCRZKk>`_
+* `Interface utilisateur  <http://youtu.be/-iVe9wBZ50>`_
+* `Interface administration <http://youtu.be/P106bQiCRZKk>`_
 
 Modules
 -------
 
 Choucas est composé de différents modules.
 
-**Gestion des sentiers** :
+**Outils cartographiques** :
 
-* Tronçons (linéaire entre 2 intersections)
-* Sentiers (groupe de tronçons)
-* Statuts (physique, foncier, organismes ayant la compétence sentiers, gestionnaires des travaux et de la signalétique)
-* Aménagements (ouvrages et équipements)
-* Signalétique
-* Interventions (travaux)
-* Chantiers (groupe d'interventions)
+* visualisation de couches de fond IGN, OSM...
+* visualisation de couches overlay (Ski, limites géo)
+* visualisation de couches métier (webcam, interventions, taracking)
+* Outils de recherche floue sur données ign, nominatim, BAN et métier
+* Accessoires à la carte (échelle, coordonnées sous curseur)
+* Saisie de coordonnées
+* Affichage altitude, commune sur évenement
 
-**Valorisation de l'offre touristique** :
+**Gendloc - Outil de géolocalisation SMS/HTML5** :
 
-* Itinéraires (randonnées)
-* POI (points d'intérêt patrimoniaux)
-* Services (informations pratiques comme les points d'eau, passages délicats... selon la typologie que vous souhaitez)
-* Contenus touristiques (hébergements, restaurants, services, activités de pleine nature, musées, produits labellisés... Vous pouvez créer les catégories que vous souhaitez)
-* Evènements touristiques (animations, expositions, sorties...)
-* Signalements (problèmes signalés par les internautes sur un itinéraire depuis Geotrek-rando)
+* SMS de localisation
+* SMS de tracking
+* SMS de partage photo
+
+**Module de chat** :
+
+* Salle opérationnelle
+* Postes avancés
+* Commandement
+* Secouriste
+* Capacité d'inclure un client html5 - requérant
+
+**Module SMS :
+
+* SMS particulier, groupe
+* SMS automatique
+* Répertoire
+* Communication avec secouriste
+
+**Module Alerte Secours Montagne
 
 Chaque module est accessible depuis le bandeau vertical. 
 
