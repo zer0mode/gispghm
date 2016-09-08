@@ -16,8 +16,6 @@ class MapLayer(GeoJSONLayerView):
     precision = 4   # float
     simplify = 0.5  # generalization
 
-
-
 # def wcamdata(request):
 #     #return HttpResponse("This is hopefully the index of colorado rocks view.")
 #     return render(request, 'pghm/data/webcam2.geojson')

@@ -53,7 +53,7 @@ to create the admin user and fill the database with your data!
 
 
 
-Then edit `etc/settings.ini` to update host variable and `geotrek/settings/custom.py`
+Then edit `etc/settings.ini` to update host variable and `/settings/custom.py`
 to update IGN key.
 
 Install Geotrek on the new server:
@@ -72,17 +72,3 @@ Restore database on the new server:
     sudo -u postgres pg_restore -d geotrekdb geotrekdb.backup
     make update
     sudo service geotrek start
-
-
-Tips and Tricks
----------------
-
-* Use symlinks for uploaded files and cached tiles to avoid duplicating them on disk:
-
-::
-
-    mv var/tiles ~/tiles
-    ln -s ~/tiles `pwd`/var/tiles
-
-    mv var/media ~/media
-    ln -s ~/media `pwd`/var/media
