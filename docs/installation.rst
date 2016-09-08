@@ -22,6 +22,53 @@ A first estimation on system resources is :
 Installation
 ------------
 
+*Installation postgresql/postgis*
+
+*Installation python*
+
+*Installation pip*
+
+*Installation git*
+
+*Installation virtualenv*
+
+::
+
+    virtualenv projet
+    source projet/bin/activate
+    git clone dépot
+    cd choucas
+    pip install -r requirements.txt
+
+
+*Edition settings.py*
+
+*Création DB
+
+::
+ 
+    python manage.py makemigrations
+    python manage.py migrate
+
+*Chargement des données fixtures
+
+::
+
+    python manage.py loaddata...
+    python manage.py makemigrations
+    python manage.py migrate
+
+*Démarrage du serveur
+
+::
+
+    python manage.py runserver
+
+*Accès au serveur localhost*
+http://localhost:8000
+http://localhost:8000/admin
+
+
 Once the OS is installed (basic installation, with OpenSSH server), install
 the last version with the following commands :
 
