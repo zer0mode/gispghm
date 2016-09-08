@@ -69,8 +69,6 @@
 	</div>
   
 
-
-
 	{% leaflet_map "main" callback="main_map_init" %}
 
     <script type="text/javascript">
@@ -141,7 +139,7 @@
 	var control = L.Control.styledLayerControl(baseMaps, overlays, options);
 
     //COUCHE WEBCAM
-    {% if perms.pghm.can_view_webcam %}
+    {% if perms.pghm.view_webcam %}
 		var webcamIcon = L.Icon.extend({
     		options: {
         		iconUrl: '{% static "pghm/icon/webcam2.png" %}',
@@ -168,11 +166,6 @@
    		control.addOverlay( webcam, "WEBCAM", {groupName : "METIER"} );
 
 	{% endif %}
-
-	{% if perms.pghm.can_view_webcam %}
-
-	{% endif %}
-
 
 	map.addControl(control);
 
