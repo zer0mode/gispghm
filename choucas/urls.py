@@ -13,33 +13,26 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib.gis import admin
-from pghm import views
-from pghm.models import Webcam
-from pghm.models import Unite
-from pghm.views import MapLayer
-from django.contrib.auth.decorators import login_required
+from pghm import views as pghm_views
 from django.contrib.auth import views as auth_views
-#rom django.views.generic import TemplateView
+from pghm.models import Webcam, Unite
+#from django.views.generic import TemplateView
 #from djgeojson.views import GeoJSONLayerView
-#from pghm.views import cam_view
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home, name='home'),
-    url(r'^camera.geojson$', MapLayer.as_view(model=Webcam, properties=('nom','img','site',)), name='camera'),
+    url(r'^$', pghm_views.home, name='home'),
+    url(r'^camera.geojson$', pghm_views.MapLayer.as_view(model=Webcam, properties=('nom','img','site',)), name='camera'),
     #url(r'^webcams/', TemplateView.as_view(template_name='pghm/wcams.html'), name='wcams'),
     #url(r'^webcams.geojson/', GeoJSONLayerView.as_view(model=Webcam), name='wcamsdata'),
     #url(r'^webcamdata$', views.wcamdata, name='webcams'),
-    #url(r'^cams.data/', cam_view, name='camser'),
+    #url(r'^cams.data/', views.cam_view, name='camser'),
     #url(r'^ski.data/', ski_view, name='skiser'),
     #url(r'^zone.data/', zone_view, name='zoneser'),
     #url(r'^login$', 'django.contrib.auth.views.login', {'template_name': 'admin/login.html'}),
-    url(r'^logout/$', 'django.contrib.auth.views.logout_then_login'),
-    #url(r'^accounts/login/$', auth_views.login),
+    url(r'^logout/$', auth_views.logout_then_login),
     url('^', include('django.contrib.auth.urls')),
-    #url(r'^accounts/profile/$', auth_views.login),
 ]
-
