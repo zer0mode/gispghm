@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-
+{% extends "admin/base.html" %}
+{% block title %}Choucas User Login{% endblock title %}
 {% block content %}
 
 {% if form.errors %}
@@ -35,4 +35,6 @@
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
+{# Login as admin #}
+<p><a href="/admin/">Login as admin</a></p>
 {% endblock %}
