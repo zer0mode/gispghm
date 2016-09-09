@@ -47,6 +47,7 @@ _templates
 *.sqlite3
 *.sql
 *.geojson
+*.json
 *.dscr
 *.hid
 *.copy
