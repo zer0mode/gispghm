@@ -22,6 +22,53 @@ A first estimation on system resources is :
 Installation
 ------------
 
+*Installation postgresql/postgis*
+
+*Installation python*
+
+*Installation pip*
+
+*Installation git*
+
+*Installation virtualenv*
+
+::
+
+    virtualenv projet
+    source projet/bin/activate
+    git clone dépot
+    cd choucas
+    pip install -r requirements.txt
+
+
+*Edition settings.py*
+
+*Création DB
+
+::
+ 
+    python manage.py makemigrations
+    python manage.py migrate
+
+*Chargement des données fixtures
+
+::
+
+    python manage.py loaddata...
+    python manage.py makemigrations
+    python manage.py migrate
+
+*Démarrage du serveur
+
+::
+
+    python manage.py runserver
+
+*Accès au serveur localhost*
+http://localhost:8000
+http://localhost:8000/admin
+
+
 Once the OS is installed (basic installation, with OpenSSH server), install
 the last version with the following commands :
 
@@ -53,7 +100,7 @@ to create the admin user and fill the database with your data!
 
 
 
-Then edit `etc/settings.ini` to update host variable and `geotrek/settings/custom.py`
+Then edit `etc/settings.ini` to update host variable and `/settings/custom.py`
 to update IGN key.
 
 Install Geotrek on the new server:
@@ -72,17 +119,3 @@ Restore database on the new server:
     sudo -u postgres pg_restore -d geotrekdb geotrekdb.backup
     make update
     sudo service geotrek start
-
-
-Tips and Tricks
----------------
-
-* Use symlinks for uploaded files and cached tiles to avoid duplicating them on disk:
-
-::
-
-    mv var/tiles ~/tiles
-    ln -s ~/tiles `pwd`/var/tiles
-
-    mv var/media ~/media
-    ln -s ~/media `pwd`/var/media
